@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 #include <string.h>
 
@@ -39,6 +37,9 @@ int check_max_swap(char * str) {
 }
 
 int dijkstra_algorithm(char * str) {
+    if (check_max_swap(str) == 1)
+        return 1;
+
     for (int i = strlen(str) - 1; i > 0; i--)
         if (str[i] > str[i - 1]) {
             char m1 = ':';
@@ -80,18 +81,12 @@ int main() {
     p[strcspn(p, "\n")] = 0;
 
     if (check_str(p) == 1 && check_num(p) == 0) {
-        int flag = 0;
         if (check_max_swap(p) == 0)
             for (int k = 0; k < N; k++) {
-                dijkstra_algorithm(p);
-
-                if (check_max_swap(p) != 0)
-                    flag++;
-
-                if (flag < 2)
-                    puts(p);
-                else
+                if (dijkstra_algorithm(p) == 1)
                     k = N;
+                else
+                    puts(p);
             }
     }
     else
