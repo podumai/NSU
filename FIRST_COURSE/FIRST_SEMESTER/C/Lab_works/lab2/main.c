@@ -1,7 +1,9 @@
+#define SIZE 21
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 int check_str(char* str) {
@@ -78,28 +80,28 @@ int dijkstra_algorithm(char * str) {
                         str[j2] = rep;
                     }
 
-            i = 0;
+            goto M1;
         }
 
-    return 0;
+    M1 : return 0;
 }
 
 
-int main() {
+void main() {
     int N;
-    char p[21];
+    char p[SIZE];
 
     fgets(p, sizeof(p), stdin);
     scanf("%d", &N);
     p[strcspn(p, "\n")] = 0;
 
-    if (check_str(p) == 1 && check_num(p) == 0) {
+    if (check_str(p) && check_num(p)) {
 
-        if (check_max_swap(p) == 0)
+        if (!check_max_swap(p))
 
             for (int k = 0; k < N; k++) {
 
-                if (dijkstra_algorithm(p) == 1)
+                if (dijkstra_algorithm(p))
                     k = N;
                 else
                     puts(p);
@@ -108,5 +110,5 @@ int main() {
     else
         printf("bad input");
 
-    return 0;
+    exit(0);
 }
