@@ -14,10 +14,6 @@ void upper_case(char * str) {
             str[i] = toupper(str[i]);
 }
 
-void cln(char * str) {
-    str[0] = '\0';
-}
-
 
 int check_dot(char * str) {
     for (int i = 0; i < strlen(str); i++)
@@ -46,6 +42,18 @@ int check_nums(int a, int b) {
         return 1;
 
     return 0;
+}
+
+
+void get_str(char * str, int a) {
+    char input = '0';
+    int i = 1;
+    str[0] = '0';
+
+    while (input != '\n' && i < a) {
+        str[i++] = getchar();
+        input = str[i - 1];
+    }
 }
 
 
@@ -88,7 +96,10 @@ int check_str(char * str, int a) {
 }
 
 
-void num_sys10(char * str, int a) {
+void num_sys(char * str, int a, int b) {
+    long long int t[SIZE];
+    long long int num_str = 0;
+
     zeroes(str);
 
     if (!check_dot(str)) {
@@ -104,16 +115,30 @@ void num_sys10(char * str, int a) {
                 sum += (str[i] - '7') * pow(a, j);
         }
 
-        cln(str);
-        _snprintf(str, SIZE, "%lld", sum);
+        j = 0;
+
+        if (sum == 0)
+            putchar('0');
+
+        while (sum != 0) {
+            num_str = sum % b;
+            sum /= b;
+            t[j++] = num_str;
+        }
+
+        for (int i = j - 1; i >= 0; i--) {
+            if (t[i] < 10)
+                putchar(t[i] + '0');
+            else
+                putchar(t[i] + 'W');
+        }
     }
     else {
-        int j = check_dot(str);
         double sum_d = 0.;
+        int j = check_dot(str);
 
         for (int i = 0; i < check_dot(str); i++) {
             j--;
-
             if (str[i] <= '9')
                 sum_d += (str[i] - '0') * pow(a, j);
             else
@@ -131,66 +156,54 @@ void num_sys10(char * str, int a) {
                 sum_d += (str[i] - '7') * pow(a, j);
         }
 
-        cln(str);
-        _snprintf(str, SIZE, "%lf", sum_d);
-    }
-}
+        long long int num = sum_d;
+        j = 0;
 
+        while (num != 0) {
+            num_str = num % b;
+            num /= b;
+            t[j++] = num_str;
+        }
 
-void num_sys(char * str, int a) {
-    long long int num = atoll(str), num_str = 0;
-    long long int t[SIZE];
-    int i = 0;
+        for (int i = j - 1; i >= 0; i--) {
+            if (t[i] < 10)
+                putchar(t[i] + '0');
+            else
+                putchar(t[i] + 'W');
+        }
 
-    if (num == 0)
-        putchar(num + '0');
+        sum_d -= (int)sum_d;
 
-    while (num != 0) {
-        num_str = num % a;
-        num = num / a;
-        t[i++] = num_str;
-    }
-
-    for (int j = i - 1; j >= 0; j--) {
-        if (t[j] < 10)
-            putchar(t[j] + '0');
-        else
-            putchar(t[j] + '7');
-    }
-
-    if (check_dot(str)) {
-        char * strend = 0;
-        long double num_d = strtold(str, strend);
-
-        num = atoll(str);
-        num_d -= num;
+        if ((int)sum_d == 0 && !j)
+            putchar((int)sum_d + '0');
 
         putchar('.');
 
-        for (i = 0; i < 12; i++) {
-            num_d *= a;
-            num = num_d;
+        for (j = 0; j < 12; j++) {
+            sum_d *= b;
 
-            if (num < 10)
-                putchar(num + '0');
+            if ((int)sum_d < 10)
+                putchar((int)sum_d + '0');
             else
-                putchar(num + '7');
+                putchar((int)sum_d + 'W');
+
+            sum_d -= (int)sum_d;
         }
     }
 }
+
 
 int main() {
     char str[SIZE];
     int b1, b2;
 
     scanf_s("%d%d\n", &b1, &b2);
-    fgets(str, sizeof(str), stdin);
+    get_str(str, SIZE);
     str[strcspn(str, "\n")] = 0;
     upper_case(str);
 
     if (check_nums(b1, b2) && check_str(str, b1)) {
-        num_sys10(str, b1);
-        num_sys(str, b2);
+        num_sys(str, b1, b2);
     }
     else
         printf("bad input");
