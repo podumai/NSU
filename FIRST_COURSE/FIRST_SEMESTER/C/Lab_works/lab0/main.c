@@ -97,88 +97,64 @@ int check_str(char * str, int a) {
 
 void num_sys(char * str, int a, int b) {
     long long int t[SIZE];
-    long long int num_str = 0;
+    long long num_str = 0, sum = 0;
+    int dot = 0, index = 0;
 
     zeroes(str);
 
-    if (!check_dot(str)) {
-        long long int sum = 0;
-        int j = strlen(str);
-
-        for (int i = 0; i < strlen(str); i++) {
-            j--;
-
-            if (str[i] <= '9')
-                sum += (str[i] - '0') * pow(a, j);
-            else
-                sum += (str[i] - '7') * pow(a, j);
-        }
-
-        j = 0;
-
-        if (sum == 0)
-            putchar('0');
-
-        while (sum != 0) {
-            num_str = sum % b;
-            sum /= b;
-            t[j++] = num_str;
-        }
-
-        for (int i = j - 1; i >= 0; i--) {
-            if (t[i] < 10)
-                putchar(t[i] + '0');
-            else
-                putchar(t[i] + 'W');
-        }
+    if (check_dot(str)) {
+        dot = check_dot(str);
+        index = check_dot(str);
     }
     else {
+        dot = strlen(str);
+        index = strlen(str);
+    }
+
+    for (int i = 0; i < dot; i++) {
+        index--;
+
+        if (str[i] <= '9')
+            sum += (str[i] - '0') * pow(a, index);
+        else
+            sum += (str[i] - '7') * pow(a, index);
+    }
+
+    index = 0;
+
+    if (sum == 0)
+        putchar('0');
+
+    while (sum != 0) {
+        num_str = sum % b;
+        sum /= b;
+        t[index++] = num_str;
+    }
+
+    for (int i = index - 1; i >= 0; i--) {
+        if (t[i] < 10)
+            putchar(t[i] + '0');
+        else
+            putchar(t[i] + 'W');
+    }
+
+    if (check_dot(str)) {
         double sum_d = 0.;
-        int j = check_dot(str);
+        int index_s = index;
+        index = 0;
 
-        for (int i = 0; i < check_dot(str); i++) {
-            j--;
-            if (str[i] <= '9')
-                sum_d += (str[i] - '0') * pow(a, j);
-            else
-                sum_d += (str[i] - '7') * pow(a, j);
-        }
-
-        j = 0;
-
-        for (int i = check_dot(str) + 1; i < strlen(str); i++) {
-            j--;
+        for (int i = dot + 1; i < strlen(str); i++) {
+            index--;
 
             if (str[i] <= '9')
-                sum_d += (str[i] - '0') * pow(a, j);
+                sum_d += (str[i] - '0') * pow(a, index);
             else
-                sum_d += (str[i] - '7') * pow(a, j);
+                sum_d += (str[i] - '7') * pow(a, index);
         }
-
-        long long int num = sum_d;
-        j = 0;
-
-        while (num != 0) {
-            num_str = num % b;
-            num /= b;
-            t[j++] = num_str;
-        }
-
-        for (int i = j - 1; i >= 0; i--) {
-            if (t[i] < 10)
-                putchar(t[i] + '0');
-            else
-                putchar(t[i] + 'W');
-        }
-
-        sum_d -= (int)sum_d;
-
-        if ((int)sum_d == 0 && !j)
-            putchar((int)sum_d + '0');
 
         putchar('.');
 
-        for (j = 0; j < 12; j++) {
+        for (int i = 0; i < 12; i++) {
             sum_d *= b;
 
             if ((int)sum_d < 10)
