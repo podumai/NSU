@@ -12,14 +12,12 @@ void swap(int * arr, int num1, int num2) {
 
 int split(int * arr, int bordDown, int bordUp) {
     int pivot = arr[bordDown];
-    int i = bordDown - 1, j = bordUp + 1;
+    int i = bordDown, j = bordUp;
     while (1) {
-        do {
+        while (arr[i] < pivot)
             i++;
-        } while(arr[i] < pivot);
-        do {
+        while (arr[j] > pivot)
             j--;
-        } while (arr[j] > pivot);
         if (i >= j)
             return j;
         swap(arr, i, j);
