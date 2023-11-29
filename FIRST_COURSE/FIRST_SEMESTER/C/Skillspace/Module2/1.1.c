@@ -20,7 +20,7 @@ void squareRoot(int * arr, int lenArr) {
 int main() {
     int lenArr;
 
-    scanf("%d", &lenArr);
+    scanf_s("%d", &lenArr);
 
     int * arr = (int*)malloc(sizeof(int)*lenArr);
 
