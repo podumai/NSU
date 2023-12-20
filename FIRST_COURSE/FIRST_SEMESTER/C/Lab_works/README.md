@@ -1,7 +1,7 @@
 # Lab_works
 > Решения лабораторных работ Gitlab.
 ## Список лабораторных работ
-- [x] lab0
+- [x] [lab0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab0)
 - [x] lab1-0
 - [ ] lab1-1
 - [ ] lab1-2
