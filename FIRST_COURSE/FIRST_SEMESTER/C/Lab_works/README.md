@@ -1,22 +1,22 @@
 # Lab_works
 > Решения лабораторных работ Gitlab.
 ## Список лабораторных работ
-- [x] [lab0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab0)
-- [x] lab1-0
-- [ ] lab1-1
-- [ ] lab1-2
-- [ ] lab10
-- [ ] lab11
-- [x] lab2
-- [ ] lab3-0
-- [x] lab3-1
-- [ ] lab4
-- [ ] lab5
-- [ ] lab6-0
-- [ ] lab6-1
-- [ ] lab6-2
-- [ ] lab6-3
-- [ ] lab7
-- [ ] lab8-0
-- [ ] lab8-1
-- [ ] lab9
+- [(&#x1F534;)] [lab0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab0)
+- [x] [lab1-0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab1-0)
+- [ ] [lab1-1](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab1-1)
+- [ ] [lab1-2](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab1-2)
+- [ ] [lab10](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab10)
+- [ ] [lab11](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab11)
+- [x] [lab2](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab2)
+- [ ] [lab3-0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab3-0)
+- [x] [lab3-1](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab3-1)
+- [x] [lab4](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab4)
+- [ ] [lab5](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab5)
+- [ ] [lab6-0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab6-0)
+- [ ] [lab6-1](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab6-1)
+- [ ] [lab6-2](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab6-2)
+- [ ] [lab6-3](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab6-3)
+- [ ] [lab7](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab7)
+- [ ] [lab8-0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab8-0)
+- [ ] [lab8-1](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab8-1)
+- [ ] [lab9](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/FIRST_SEMESTER/C/Lab_works/lab9)
