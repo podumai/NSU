@@ -1,8 +1,7 @@
 #include "lab2.h"
 
 
-int32_t main()
-{
+int32_t main() {
     int32_t N = 0;
     char *in = (char*)malloc(sizeof(char) * SIZE);
 
