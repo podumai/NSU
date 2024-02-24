@@ -11,12 +11,7 @@ int32_t* init_arr(int32_t N) {
 
 // Function for input
 void input(int32_t* arr, int32_t N) {
-    if (arr) {
-        for (int32_t i = 0 ; scanf_s("%d", &arr[i]) && i < N ; i++);
-    }
-    else {
-        printf("Input error --> Array initialization error\n");
-    }
+    for (int32_t i = 0 ; scanf_s("%d", &arr[i]) && i < N ; i++);
 }
 
 // Function to swap two array elements
@@ -68,13 +63,11 @@ void heap_sort(int32_t* arr, int32_t N) {
 
 // Function for print sorted array
 void output(int32_t* arr, int32_t N) {
-    if (arr) {
-        heap_sort(arr, N);
+    heap_sort(arr, N);
 
-        for (int32_t i = 0 ; i < N ; i++) {
-            printf("%d ", arr[i]);
-        }
-
-        printf("\n");
+    for (int32_t i = 0 ; i < N ; i++) {
+        printf("%d ", arr[i]);
     }
+
+    printf("\n");
 }
