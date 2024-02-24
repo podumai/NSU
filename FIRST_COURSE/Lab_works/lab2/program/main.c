@@ -2,13 +2,24 @@
 
 
 int32_t main() {
-    int32_t N = 0;
-    char *in = (char*)malloc(sizeof(char) * SIZE);
+    int32_t N;
+    char* in;
+
+    N = 0;
+    in = NULL;
 
     in = input();
     scanf_s("%d", &N);
-    output(in, N);
-    free(in);
+
+    if (in) {
+        output(in, N);
+        free(in);
+    }
+    else {
+        printf("Array initialization error\n");
+    }
+
+    system("pause");
 
     return 0;
 }
