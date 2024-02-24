@@ -3,7 +3,7 @@
 
 int32_t main() {
     int16_t N;
-    int64_t *in;
+    int64_t* in;
 
     N = 0;
     in = NULL;
