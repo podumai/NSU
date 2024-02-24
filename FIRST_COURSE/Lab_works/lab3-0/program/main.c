@@ -10,9 +10,16 @@ int32_t main() {
 
     scanf_s("%d", &N);
     arr = init_arr(N);
-    input(arr, N);
-    output(arr, N);
-    free(arr);
+
+    if (arr) {
+        input(arr, N);
+        output(arr, N);
+        free(arr);
+    }
+    else {
+        printf("Array initialization error\n");
+    }
+
     system("pause");
 
     return 0;
