@@ -1,4 +1,4 @@
-# LAB4
+# Lists
 > Результаты пройденных тестов
 ## Developer:
 ### [Evgueni-Petrov-aka-espetrov](https://github.com/Evgueni-Petrov-aka-espetrov)
