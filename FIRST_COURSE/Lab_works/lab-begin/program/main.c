@@ -9,9 +9,12 @@ int32_t main() {
     in = NULL;
 
     scanf_s("%hd", &N);
-    in = input(N);
+    in = init_arr(N);
+
+    input(in, N);
     output(in, N);
     free(in);
+
     system("pause");
 
     return 0;
