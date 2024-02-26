@@ -21,7 +21,7 @@ void input(int32_t* arr, int32_t N);
 
 #ifndef SWAP_H_
 #define SWAP_H_
-void swap(int32_t* arr, int32_t index1, int32_t index2);
+void swap(int32_t* num1, int32_t* num2);
 #endif
 
 
