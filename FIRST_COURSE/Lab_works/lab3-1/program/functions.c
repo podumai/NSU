@@ -15,12 +15,13 @@ void input(int32_t* arr, int32_t N) {
 }
 
 // Function to swap two array elements
-void swap(int32_t* arr, int32_t index1, int32_t index2) {
+void swap(int32_t* num1, int32_t* num2) {
     int32_t ptr;
 
-    ptr = arr[index1];
-    arr[index1] = arr[index2];
-    arr[index2] = ptr;
+    ptr = *num1;
+
+    *num1 = *num2;
+    *num2 = ptr;
 }
 
 // Function to split an array
@@ -42,7 +43,7 @@ int32_t split(int32_t* arr, int32_t low, int32_t high) {
             break;
         }
 
-        swap(arr, i++, j--);
+        swap(&arr[i++], &arr[j--]);
     }
 
     return j;
