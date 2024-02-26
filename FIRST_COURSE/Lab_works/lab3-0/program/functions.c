@@ -15,12 +15,13 @@ void input(int32_t* arr, int32_t N) {
 }
 
 // Function to swap two array elements
-void swap(int32_t* arr, int32_t index1, int32_t index2) {
+void swap(int32_t* num1, int32_t* num2) {
     int32_t ptr;
     
-    ptr = arr[index1];
-    arr[index1] = arr[index2];
-    arr[index2] = ptr;
+    ptr = *num1;
+    
+    *num1 = *num2;
+    *num2 = ptr;
 }
 
 // Function for heapify a subtree
@@ -44,7 +45,7 @@ void heapify(int32_t* arr, int32_t N, int32_t root) {
     }
     
     if (largest != root) {
-        swap(arr, root, largest);
+        swap(&arr[root], &arr[largest]);
         heapify(arr, N, largest);
     }
 }
@@ -56,7 +57,7 @@ void heap_sort(int32_t* arr, int32_t N) {
     }
 
     for (int32_t i = N - 1 ; i >= 0; i--) {
-        swap(arr, 0, i);
+        swap(&arr[0], &arr[i]);
         heapify(arr, i, 0);
     }
 }
