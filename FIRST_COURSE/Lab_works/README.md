@@ -1,4 +1,4 @@
-# Lab_works
+# Lab-works
 > Решения лабораторных работ Gitlab.
 ## Список лабораторных работ
 - [&#128994;] [lab-begin](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab-begin)
@@ -13,7 +13,7 @@
 - [&#128994;] [lab3-1](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab3-1)
 - [&#x1F534;] [lab4](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab4)
 - [&#x1F534;] [lab5](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab5)
-- [&#x1F534;] [lab6-0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab6-0)
+- [&#128994;] [lab6-0](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab6-0)
 - [&#x1F534;] [lab6-1](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab6-1)
 - [&#x1F534;] [lab6-2](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab6-2)
 - [&#x1F534;] [lab6-3](https://github.com/podumai/NSU/tree/main/FIRST_COURSE/Lab_works/lab6-3)
