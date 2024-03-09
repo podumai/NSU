@@ -1,133 +1,102 @@
 #include "lab6_0.h"
 
 
-int32_t* init_arr(int32_t N) {
-    int32_t* arr;
+AVL* newElement(int32_t value) {
+    AVL* ptr = (AVL*)malloc(sizeof(AVL));
 
-    arr = (int32_t*)malloc(sizeof(int32_t) * N);
+    ptr->left = NULL;
+    ptr->right = NULL;
+    ptr->key = value;
 
-    return arr;
+    return ptr;
 }
 
 
-Node* create_node(int32_t num, Node* tree, int32_t index) {
-    tree[index].key = num;
-    tree[index].left = tree[index].right = 0;
+AVL* initTree(AVL* root, int32_t amount) {
+    int32_t num;
 
-    return &tree[index];
+    for (int32_t i = 0; i < amount; i++) {
+        scanf_s("%d", &num);
+
+        root = insert(root, num);
+    }
+    return root;
 }
 
 
-int16_t height(Node* p) {
-    int16_t height_l, height_r;
+void freeTree(AVL* root) {
+    if (root) {
+       freeTree(root->left);
+       freeTree(root->right);
+       free(root);
+    }
+}
 
-    height_l = height_r = 0;
 
-    if (!p)
+int8_t height(AVL* root) {
+    if (!root)
         return -1;
 
-    height_l = height(p->left);
-    height_r = height(p->right);
-
-    return 1 + height_l>height_r?height_l:height_r;
+    return 1 + max(height(root->left), height(root->right));
 }
 
 
-int16_t balance_factor(Node* p) {
-    if (p)
-        return height(p->right) - height(p->left);
+int8_t balanceFactor(AVL* root) {
+    if (root)
+        return height(root->right) - height(root->left);
 
     return 0;
 }
 
 
-Node* rotate_r(Node* p) {
-    Node* q;
+AVL* rotateRight(AVL* root) {
+    AVL* ptr = root->left;
 
-    q = p->left;
+    root->left = ptr->right;
+    ptr->right = root;
 
-    p->left = q->right;
-    q->right = p;
-
-    return q;
+    return ptr;
 }
 
 
-Node* rotate_l(Node* q) {
-    Node* p;
+AVL* rotateLeft(AVL* root) {
+    AVL* ptr = root->right;
 
-    p = q->right;
+    root->right = ptr->left;
+    ptr->left = root;
 
-    q->right = p->left;
-    p->left = q;
-
-    return p;
+    return ptr;
 }
 
 
-Node* balance(Node* p) {
-    int16_t balance;
-
-    balance = balance_factor(p);
+AVL* balance(AVL* root) {
+    int16_t balance = balanceFactor(root);
 
     if (balance == 2) {
-        if (balance_factor(p->right) < 0)
-            p->right = rotate_r(p->right);
+        if (balanceFactor(root->right) < 0)
+            root->right = rotateRight(root->right);
 
-        return rotate_l(p);
+        return rotateLeft(root);
     }
     else if (balance == -2) {
-        if (balance_factor(p->left) > 0)
-            p->left = rotate_l(p->left);
+        if (balanceFactor(root->left) > 0)
+            root->left = rotateLeft(root->left);
 
-        return rotate_r(p);
+        return rotateRight(root);
     }
 
-    return p;
+    return root;
 }
 
 
-Node* insert(Node* p, Node* tree, int32_t k) {
-    if (!tree)
-        return create_node(k, tree, 0);
+AVL* insert(AVL* root, int32_t value) {
+    if (!root)
+        return newElement(value);
 
-    if (k < tree->key)
-        p->left = insert(p->left, tree, k);
+    if (value < root->key)
+        root->left = insert(root->left, value);
     else
-        p->right = insert(p->right, tree, k);
+        root->right = insert(root->right, value);
 
-    return balance(p);
-}
-
-
-void input(int32_t* arr, Node* p, Node* tree, int32_t N) {
-    for (int32_t i = 0; scanf_s("%d", &arr[i]) == 1 && i < N; i++) {
-        create_node(arr[i], tree, i);
-        p = insert(p, tree, arr[i]);
-    };
-}
-
-
-void search(Node* p, int32_t k) {
-    if (!p)
-        printf("False\n");
-    else if (p->key == k)
-        printf("True\n");
-    else if (p->key < k)
-        search(p->left, k);
-    else
-        search(p->right, k);
-}
-
-
-void sym_order(Node* p) {
-    if (p->left) {
-        sym_order(p->left);
-    }
-
-    printf("%d\n", p->key);
-
-    if (p->right) {
-        sym_order(p->right);
-    }
+    return balance(root);
 }
