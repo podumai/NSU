@@ -2,29 +2,21 @@
 
 
 int32_t main() {
-    Node *root, *tree;
-    int32_t* arr;
-    int32_t N, val;
+    AVL* root = NULL;
+    int32_t amount;
 
-    root = tree = arr = NULL;
-    N = val = 0;
+    scanf_s("%d", &amount);
 
-    scanf_s("%d", &N);
-    arr = init_arr(N);
-
-    if (arr) {
-        input(arr, root, tree, N);
-        printf("%hd\n", height(root) + 1);
-        sym_order(root);
+    if (amount > 0) {
+        root = initTree(root, amount);
+        printf("%d\n", height(root) + 1);
+        freeTree(root);
     }
+    else if (!amount)
+        printf("0\n");
     else
-        printf("Array initialization error\n");
+        printf("Amount of AVL tree vertices can not be negative\n");
 
-    scanf_s("%d", &val);
-    search(root, val);
-
-    free(arr);
-    free(tree);
     system("pause");
 
     return 0;
