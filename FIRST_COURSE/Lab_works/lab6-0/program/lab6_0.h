@@ -30,12 +30,6 @@ AVL* initTree(AVL*, int32_t);
 void freeTree(AVL*);
 
 
-void search(AVL*, int32_t);
-
-
-void inOrder(AVL*);
-
-
 int8_t height(AVL*);
 
 
