@@ -6,7 +6,6 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "lab8_1.h"
 // -----------------------------------------------------
 // |           Displays error information              |
