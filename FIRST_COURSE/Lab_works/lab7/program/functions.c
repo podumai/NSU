@@ -218,7 +218,8 @@ bool isCycled(Link *matrix, int16_t size, Link *visited) {
 void connect(Link *matrix, int16_t size, uint16_t *graphTree, int16_t vrtx) {
 
     for (int16_t i = 0; i < size; i++)
-        if ((matrix + vrtx * size + i)->flag)
+        if ((matrix + vrtx * size + i)->flag ||
+            (matrix + i * size + vrtx)->flag)
             *(graphTree + i) = *(graphTree + vrtx);
 
 }
