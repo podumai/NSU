@@ -15,8 +15,6 @@ int32_t main() {
 
     if (input(&vertices, &edges)) {
 
-        isInputValid(vertices, edges);
-
         matrix = createMatrix(vertices);
 
         if (fillMatrix(matrix, vertices, edges)) {
