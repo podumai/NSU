@@ -12,33 +12,34 @@ void errorMessage(int8_t mode) {
 
     switch (mode) {
     case 1:
-        fprintf(stderr, "Error occurred: Invalid number of parameters\n");
+        fprintf(stderr, "Error occurred: Invalid number of parameters.\n");
         break;
     case 2:
-        fprintf(stderr, "Error occurred: Bad number of vertices\n");
+        fprintf(stderr, "Error occurred: Bad number of vertices.\n");
         break;
     case 3:
-        fprintf(stderr, "Error occurred: Bad number of edges\n");
+        fprintf(stderr, "Error occurred: Bad number of edges.\n");
         break;
     case 4:
-        fprintf(stderr, "Error occurred: Bad number of lines\n");
+        fprintf(stderr, "Error occurred: Bad number of lines.\n");
         break;
     case 5:
-        fprintf(stderr, "Error occurred: Bad vertex\n\
-1. Vertex can not contain cycle\n\
+        fprintf(stderr, "\
+Error occurred: Bad vertex;\n\
+1. Vertex can not contain cycle;\n\
 2. The vertex number must satisfy the condition: 1 <= Vertex <= \
-Number of Vertices");
+Number of Vertices.");
         break;
     case 6:
         fprintf(stderr, "Error occurred: Incoherent graph;\n\
-Result: Impossible to sort\n");
+Result: Impossible to sort.\n");
         break;
     case 7:
         fprintf(stderr, "Error occurred: Cyclic graph;\n\
-Result: Impossible to sort\n");
+Result: Impossible to sort.\n");
         break;
     default:
-        fprintf(stderr, "Error occurred: Unable to allocate memory\n");
+        fprintf(stderr, "Error occurred: Unable to allocate memory.\n");
         break;
     }
 
