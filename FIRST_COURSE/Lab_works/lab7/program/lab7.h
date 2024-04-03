@@ -7,10 +7,11 @@
 // --------------------------------------------------
 #pragma once
 
-#define MIN_VERTICES 0
+#define MIN_VERTICES 1
 #define MAX_VERTICES 2000
 #define MIN_EDGES 0
 #define MAX_EDGES(type, n) n * (n - 1) / 2
+#define NULL_PAR 0
 #define ERR_NUM_PAR 1
 #define ERR_NUM_VERT 2
 #define ERR_NUM_EDG 3
