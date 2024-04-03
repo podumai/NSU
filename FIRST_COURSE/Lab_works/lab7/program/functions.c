@@ -15,16 +15,19 @@ void errorMessage(int8_t mode) {
         fprintf(stderr, "Error occurred: Invalid number of parameters\n");
         break;
     case 2:
-        fprintf(stderr, "bad number of vertices\n");
+        fprintf(stderr, "Error occurred: Bad number of vertices\n");
         break;
     case 3:
-        fprintf(stderr, "bad number of edges\n");
+        fprintf(stderr, "Error occurred: Bad number of edges\n");
         break;
     case 4:
-        fprintf(stderr, "bad number of lines\n");
+        fprintf(stderr, "Error occurred: Bad number of lines\n");
         break;
     case 5:
-        fprintf(stderr, "bad vertex\n");
+        fprintf(stderr, "Error occurred: Bad vertex\n\
+1. Vertex can not contain cycle\n\
+2. The vertex number must satisfy the condition: 1 <= Vertex <= \
+Number of Vertices");
         break;
     case 6:
         fprintf(stderr, "Error occurred: Incoherent graph;\n\
@@ -47,9 +50,12 @@ bool input(int16_t *vertices, int16_t *edges) {
 
     if (scanf("%hd%hd", vertices, edges) == 2) {
 
-        if (*vertices >= MIN_VERTICES && *vertices <= MAX_VERTICES) {
+        if (!*vertices && !*edges)
+            exit(NULL_PAR);
 
-            if (*edges >= MIN_EDGES && *edges <= MAX_EDGES(int16_t, *vertices)
+        if (*vertices > MIN_VERTICES && *vertices <= MAX_VERTICES) {
+
+            if (*edges > MIN_EDGES && *edges <= MAX_EDGES(int16_t, *vertices)
                 && *vertices)
                 return true;
             else
@@ -87,9 +93,9 @@ Link *createMatrix(int16_t size) {
 // -----------------------------------------------------
 bool isValid(int16_t vrtx1, int16_t vrtx2, int16_t vertices) {
 
-    if (vrtx1 > MIN_VERTICES && vrtx1 <= vertices && vrtx1 != vrtx2)
+    if (vrtx1 >= MIN_VERTICES && vrtx1 <= vertices && vrtx1 != vrtx2)
 
-        if (vrtx2 > MIN_VERTICES && vrtx2 <= vertices)
+        if (vrtx2 >= MIN_VERTICES && vrtx2 <= vertices)
             return true;
 
     errorMessage(ERR_VRTX);
