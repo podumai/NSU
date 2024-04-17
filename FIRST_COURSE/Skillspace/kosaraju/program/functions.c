@@ -257,8 +257,8 @@ int8_t isConnected(Graph *pGraph)
 int8_t checkChoice(int8_t choice)
 {
     if (choice == 'Y' || choice == 'N')
-        return 1;
-
+        return choice;
+    
     return 0;
 }
 // *************************************************
@@ -278,6 +278,27 @@ void dfs(Graph *pGraph, int8_t *visited, Stack *stack, uint16_t vrtx)
     return;
 }
 // *************************************************
+// |       Functions to get user selection         |
+// *************************************************
+void getChoice(int8_t *choice)
+{
+    int8_t count = 0;
+        do
+    {
+        getchar();
+        *choice = getchar();
+        *choice = toupper(*choice);
+
+        if (!( *choice = checkChoice(*choice)) && count < 3)
+            errorMessage(count++);
+        else if (!(*choice))
+        {
+            errorMessage(count);
+            *choice = 'N';
+        }
+    } while (!(*choice) && count < 4);
+}
+// *************************************************
 // |   Function to run DFS on an inverted graph    |
 // |             to order the vertices             |
 // *************************************************
@@ -288,7 +309,6 @@ int8_t getSort(Graph *pGraph, Stack **sortVrtx)
     *sortVrtx = makeStack(pGraph->vertices);
     int8_t choice = 'Y';
     int8_t res;
-    int8_t count = 0;
 
     if (!stack || !visited || !sortVrtx)
     {
@@ -303,21 +323,7 @@ int8_t getSort(Graph *pGraph, Stack **sortVrtx)
     {
         errorMessage(INCHR_GRPH);
 
-        do
-        {
-            getchar();
-            choice = getchar();
-            choice = toupper(choice);
-
-            if (!checkChoice(choice) && count <= 2)
-                errorMessage(count++);
-            else if (!checkChoice(choice))
-            {
-                errorMessage(count);
-                choice = 'N';
-            }
-
-        } while (!checkChoice(choice) && count < 4);
+        getChoice(&choice);
     }
 
     if (choice == 'Y' && res >= 0)
