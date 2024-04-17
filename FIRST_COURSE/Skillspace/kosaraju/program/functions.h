@@ -50,6 +50,8 @@ int8_t input(Graph**);
 
 int8_t getGraph(Graph**);
 
+void getChoice(int8_t*);
+
 int8_t checkVertex(int16_t, int16_t, uint16_t);
 
 int8_t isConnected(Graph*);
