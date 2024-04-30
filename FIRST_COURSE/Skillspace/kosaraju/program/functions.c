@@ -283,7 +283,8 @@ void dfs(Graph *pGraph, int8_t *visited, Stack *stack, uint16_t vrtx)
 void getChoice(int8_t *choice)
 {
     int8_t count = 0;
-        do
+    
+    do
     {
         getchar();
         *choice = getchar();
@@ -297,6 +298,8 @@ void getChoice(int8_t *choice)
             *choice = 'N';
         }
     } while (!(*choice) && count < 4);
+
+    return;
 }
 // *************************************************
 // |   Function to run DFS on an inverted graph    |
@@ -426,6 +429,8 @@ void freeGraph(Graph **pGraph)
         free(*pGraph);
         *pGraph = NULL;
     }
+
+    return;
 }
 // *************************************************
 // |  Freeing memory allocated for stack storage   |
@@ -442,4 +447,6 @@ void freeStack(Stack **stack)
         free(*stack);
         *stack = NULL;
     }
+
+    return;
 }
